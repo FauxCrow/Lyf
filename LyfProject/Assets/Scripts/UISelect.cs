@@ -48,7 +48,11 @@ public class UISelect : MonoBehaviour
 
     public void CloseMenu()
     {
+        mStickerMenu.SetActive(false);
+        mEffectsMenu.SetActive(false);
+        mModelsMenu.SetActive(false);
         mBottomMenu.SetActive(false);
+        mTopMenu.SetActive(false);
         mCameraButton.SetActive(false);
         mBackButton.SetActive(false);
         mMenuButton.SetActive(false);

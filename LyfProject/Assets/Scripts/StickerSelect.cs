@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Lean.Touch;
 
 public class StickerSelect : MonoBehaviour
@@ -141,6 +142,7 @@ public class StickerSelect : MonoBehaviour
 
         mTotalPopupNo--;
 
+        // Sets new last popup and enables lean movement
         if (mTotalPopupNo > 0)
         {
             mLastPopupName = "Popup" + (mTotalPopupNo - 1);
@@ -155,13 +157,13 @@ public class StickerSelect : MonoBehaviour
     // Hides the undo button if there are no stickers (nothing to undo)
     public void SetBackActive()
     {
-        if (mTotalPopupNo == 0)
+        if (mTotalPopupNo > 0)
         {
-            mBackButton.SetActive(false);
+            mBackButton.SetActive(true);
             return;
         }
 
-        mBackButton.SetActive(true);
+        mBackButton.SetActive(false);
     }
 
     // Setup sticker sprite and animations (if applicable) to newly spawned popup (target)
