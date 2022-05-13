@@ -4,7 +4,7 @@ To do list:
 - [x] all menus
 - [x] camera prompt
 - [x] camera snapshot
-- [ ] back button (currently broken again sighs)
+- [x] back button
 - [ ] information pop-up
 - [ ] reward of finding new mural pop-up
 - [ ] code optimisation
