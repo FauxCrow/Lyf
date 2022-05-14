@@ -5,6 +5,6 @@ To do list:
 - [x] camera prompt
 - [x] camera snapshot
 - [x] back button
-- [ ] information pop-up
+- [x] information pop-up
 - [ ] reward of finding new mural pop-up
 - [ ] code optimisation
