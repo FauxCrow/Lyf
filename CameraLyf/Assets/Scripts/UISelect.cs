@@ -18,7 +18,10 @@ public class UISelect : MonoBehaviour
     public GameObject mInformationPrompt;
 
     // UI Text for information prompt
-    private string[] mInformationPrompts = { "This is together", "This is space", "This is chicken", "This is portal" };
+    private string[] mInformationPrompts = { "This is together", 
+        "This is space", 
+        "This is a mural of chickens, serving as a tribute to the chickens that used to roam this property.", 
+        "This is portal" };
     private string[] mMurals = { "Together", "Space", "Chicken", "Portal" };
     public Text mInfoPromptText;
 

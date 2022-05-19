@@ -31,9 +31,6 @@ public class PopupSelect : MonoBehaviour
     // Reference to the previous popup's name
     private string mLastPopupName;
 
-    // Reference to the type of popup chosen (sticker, 3d model, effects)
-    private string mPopupType;
-
     // Reference to target's SpriteRenderer and Animator, changed upon sticker spawned
     private SpriteRenderer mStickerSprite;
     private Animator mStickerAnim;
@@ -49,8 +46,6 @@ public class PopupSelect : MonoBehaviour
 
     public void SpawnPopup()
     {
-        SetupPopup();
-
         //Disable Lean for any previous sticker (if applicable)
         if (mTotalPopupNo > 0)
         {
@@ -59,37 +54,43 @@ public class PopupSelect : MonoBehaviour
             DisableLean(mLastPopup);
         }
 
-        if (mPopupType == "Sticker")
+        switch (gameObject.tag)
         {
-            // Spawn new sticker as child of current image target
-            // Change position and rotation to 0
-            // Rename to current sticker number (used to delete target if user chooses to undo)
-            GameObject target = Instantiate(mStickerPrefab);
-            target.transform.parent = mTarget.transform;
-            target.transform.localPosition = new Vector3(0f, 0f, 0f);
-            target.transform.rotation = Quaternion.identity;
-            target.name = "Popup" + mTotalPopupNo;
+            case ("Sticker"):
+                for (int i = 0; i < mStickers.Length; i++)
+                {
+                    if (mStickers[i].name == this.name)
+                    {
+                        mCurrentPopupNo = i;
+                    }
+                }
 
-            // Use popup number to setup sticker
-            SetupSticker(target);
-        }
-        else if (mPopupType == "Effects")
-        {
-            // Spawn new effects as child of current image target
-            // Change position and rotation to 0
-            // Rename to current sticker number (used to delete target if user chooses to undo)
-            GameObject target = Instantiate(mEffects[mCurrentPopupNo]);
-            target.transform.parent = mTarget.transform;
-            target.transform.localPosition = new Vector3(0f, 0f, 0f);
-            target.transform.rotation = Quaternion.identity;
-            target.name = "Popup" + mTotalPopupNo;
-        }
-        else if (mPopupType == "Models")
-        {
-            GameObject target = Instantiate(mModels[mCurrentPopupNo]);
-            target.transform.parent = mTarget.transform;
-            target.transform.localPosition = new Vector3(0f, 0f, 0f);
-            target.name = "Popup" + mTotalPopupNo;
+                SetupTarget(mStickerPrefab);
+                break;
+
+            case ("Effect"):
+                for (int i = 0; i < mEffects.Length; i++)
+                {
+                    if (mEffects[i].name == this.name)
+                    {
+                        mCurrentPopupNo = i;
+                    }
+                }
+
+                SetupTarget(mEffects[mCurrentPopupNo]);
+                break;
+
+            case ("Model"):
+                for (int i = 0; i < mModels.Length; i++)
+                {
+                    if (mModels[i].name == this.name)
+                    {
+                        mCurrentPopupNo = i;
+                    }
+                }
+
+                SetupTarget(mModels[mCurrentPopupNo]);
+                break;
         }
 
         mTotalPopupNo++;
@@ -98,38 +99,33 @@ public class PopupSelect : MonoBehaviour
         SetBackActive();
     }
 
-    private void SetupPopup()
+    private void SetupTarget(GameObject type)
     {
-        // checks if button calls for sticker sprites in pre-existing array, if so set sticker number as sprite key in array
-        for (int i = 0; i < mStickers.Length; i++)
-        {
-            if (mStickers[i].name == this.name)
-            {
-                mPopupType = "Sticker";
-                mCurrentPopupNo = i;
-                return;
-            }
-        }
+        // Spawn new type as child of current image target
+        // Change position and rotation to 0
+        // Rename to current sticker number (used to delete target if user chooses to undo)
+        GameObject target = Instantiate(type);
+        target.transform.parent = mTarget.transform;
+        target.transform.localPosition = new Vector3(0f, 0f, 0f);
+        target.name = "Popup" + mTotalPopupNo;
 
-        // checks if button calls for effects particle systems in pre-exiting array, if so set effects number as effects key in array
-        for (int i = 0; i < mEffects.Length; i++)
+        if (type == mStickerPrefab)
         {
-            if (mEffects[i].name == this.name)
-            {
-                mPopupType = "Effects";
-                mCurrentPopupNo = i;
-                return;
-            }
+            // Use popup number to setup sticker
+            SetupSticker(target);
         }
+    }
 
-        // checks if button calls for models prefab in pre-exiting array, if so set model number as effects key in array
-        for (int i = 0; i < mModels.Length; i++)
+    // Setup sticker sprite and animations (if applicable) to newly spawned popup (target)
+    private void SetupSticker(GameObject target)
+    {
+        mStickerSprite = target.GetComponent<SpriteRenderer>();
+        mStickerSprite.sprite = mStickers[mCurrentPopupNo];
+
+        if (mCurrentPopupNo != 3)
         {
-            if (mModels[i].name == this.name)
-            {
-                mPopupType = "Models";
-                mCurrentPopupNo = i;
-            }
+            mStickerAnim = target.GetComponent<Animator>();
+            mStickerAnim.runtimeAnimatorController = mAnimators[mCurrentPopupNo];
         }
     }
 
@@ -164,19 +160,6 @@ public class PopupSelect : MonoBehaviour
         }
 
         mBackButton.SetActive(false);
-    }
-
-    // Setup sticker sprite and animations (if applicable) to newly spawned popup (target)
-    private void SetupSticker(GameObject target)
-    {
-        mStickerSprite = target.GetComponent<SpriteRenderer>();
-        mStickerSprite.sprite = mStickers[mCurrentPopupNo];
-
-        if (mCurrentPopupNo != 3)
-        {
-            mStickerAnim = target.GetComponent<Animator>();
-            mStickerAnim.runtimeAnimatorController = mAnimators[mCurrentPopupNo];
-        }
     }
 
     // Disables Lean components of previous objects (user can only move current sticker)
