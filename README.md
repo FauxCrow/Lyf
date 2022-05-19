@@ -6,5 +6,7 @@ To do list:
 - [x] camera snapshot
 - [x] back button
 - [x] information pop-up
-- [ ] reward of finding new mural pop-up
 - [x] code optimisation
+- [ ] reward of finding new mural pop-up
+- [ ] new effects/models included
+- [ ] sound effects
