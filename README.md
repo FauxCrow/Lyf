@@ -7,4 +7,4 @@ To do list:
 - [x] back button
 - [x] information pop-up
 - [ ] reward of finding new mural pop-up
-- [ ] code optimisation
+- [x] code optimisation
