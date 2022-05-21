@@ -84,6 +84,11 @@ public class UISelect : MonoBehaviour
         }
     }
 
+    public void CloseInformation()
+    {
+        mInformationPrompt.SetActive(false);
+    }
+
     public void StickerState()
     {
         if (effectState == true || modelState == true)
