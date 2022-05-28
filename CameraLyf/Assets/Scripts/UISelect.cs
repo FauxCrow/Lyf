@@ -17,11 +17,14 @@ public class UISelect : MonoBehaviour
     public GameObject mInformationButton;
     public GameObject mInformationPrompt;
 
+    // Button click sound
+    public AudioClip mBtnClick;
+
     // UI Text for information prompt
-    private string[] mInformationPrompts = { "This is together", 
-        "This is space", 
-        "This is a mural of chickens, serving as a tribute to the chickens that used to roam this property.", 
-        "This is portal" };
+    private string[] mInformationPrompts = { "This is a mural that reads: 'more together, the happier we'll be'.",
+        "This is a mural that shows a splash of colour in a playful and expressive way, with text that reads 'Innovators bloom here'.", 
+        "This is a mural of chickens, serving as a tribute to the chickens that used to roam this property.",
+        "This is a mural that plays on the themes used across the property, such as portals and chickens." };
     private string[] mMurals = { "Together", "Space", "Chicken", "Portal" };
     public Text mInfoPromptText;
 
@@ -55,6 +58,11 @@ public class UISelect : MonoBehaviour
         mCameraButton.SetActive(true);
         mInformationButton.SetActive(true);
         mCameraPrompt.SetActive(false);
+
+        if (PopupSelect.mTarget.transform.childCount > 0)
+        {
+            mBackButton.SetActive(true);
+        }
     }
 
     public void CloseMenu()
@@ -72,6 +80,8 @@ public class UISelect : MonoBehaviour
 
     public void OpenInformation()
     {
+        PlaySound();
+
         mInformationPrompt.SetActive(true);
 
         for (int i = 0; i < mMurals.Length; i++)
@@ -91,6 +101,8 @@ public class UISelect : MonoBehaviour
 
     public void StickerState()
     {
+        PlaySound();
+
         if (effectState == true || modelState == true)
         {
             mEffectsMenu.SetActive(false);
@@ -113,6 +125,8 @@ public class UISelect : MonoBehaviour
 
     public void EffectState()
     {
+        PlaySound();
+
         if (stickerState == true || modelState == true)
         {
             mStickerMenu.SetActive(false);
@@ -136,6 +150,8 @@ public class UISelect : MonoBehaviour
 
     public void ModelState()
     {
+        PlaySound();
+
         if (stickerState == true || effectState == true)
         {
             mStickerMenu.SetActive(false);
@@ -154,5 +170,13 @@ public class UISelect : MonoBehaviour
         mModelsMenu.SetActive(false);
         mTopMenu.SetActive(false);
         modelState = false;
+    }
+
+    public void PlaySound()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+
+        audio.clip = mBtnClick;
+        audio.Play();
     }
 }
