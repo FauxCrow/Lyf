@@ -8,5 +8,5 @@ To do list:
 - [x] information pop-up
 - [x] code optimisation
 - [ ] reward of finding new mural pop-up
-- [ ] new effects/models included
-- [ ] sound effects
+- [x] new effects/models included
+- [x] sound effects
