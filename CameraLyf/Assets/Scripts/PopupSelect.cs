@@ -122,10 +122,10 @@ public class PopupSelect : MonoBehaviour
         mStickerSprite = target.GetComponent<SpriteRenderer>();
         mStickerSprite.sprite = mStickers[mCurrentPopupNo];
 
-        if (mCurrentPopupNo != 3)
+        if (mCurrentPopupNo > 0)
         {
             mStickerAnim = target.GetComponent<Animator>();
-            mStickerAnim.runtimeAnimatorController = mAnimators[mCurrentPopupNo];
+            mStickerAnim.runtimeAnimatorController = mAnimators[mCurrentPopupNo - 1];
         }
     }
 
@@ -167,6 +167,7 @@ public class PopupSelect : MonoBehaviour
     {
         previousObject.GetComponent<LeanPinchScale>().enabled = false;
         previousObject.GetComponent<LeanDragTranslate>().enabled = false;
+        previousObject.GetComponent<LeanTwistRotate>().enabled = false;
     }
 
     // Enables Lean components of previous object after clicking back button
@@ -174,5 +175,6 @@ public class PopupSelect : MonoBehaviour
     {
         previousObject.GetComponent<LeanPinchScale>().enabled = true;
         previousObject.GetComponent<LeanDragTranslate>().enabled = true;
+        previousObject.GetComponent<LeanTwistRotate>().enabled = true;
     }
 }
