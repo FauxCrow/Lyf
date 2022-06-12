@@ -16,23 +16,30 @@ public class UISelect : MonoBehaviour
     public GameObject mBackButton;
     public GameObject mInformationButton;
     public GameObject mInformationPrompt;
+    public GameObject mReward;
 
     // Button click sound
     public AudioClip mBtnClick;
 
     // UI Text for information prompt
-    private string[] mInformationPrompts = { "This is a mural about community living that reads: 'the more we get together, the happier we'll be'.",
+    private string[] mInformationPrompts = { "This is a mural about community living that reads: 'the more we get together, the happier we'll be'.",  // contains all current mural information
         "This is a mural that about expressing creativity in a colourful way, with a sign that reads 'Innovators bloom here'.", 
         "This is a mural of interlocking chicken patterns, serving as a tribute to the chickens that used to roam this property.",
         "This is a mural that plays on the themes used across the property, such as portals and chickens." };
-    private string[] mCurrentLocation = { "Rooftop level Unwind & Hang Out", "Level 5 Tower B Lift Area", "Level 1 Wash & Hang", "Level 5 Tower A Lift Area" };
-    private string[] mMurals = { "Together", "Space", "Chicken", "Portal" };
+    private string[] mCurrentLocation = { "Rooftop level Unwind & Hang Out", "Level 5 Tower B Lift Area", "Level 1 Wash & Hang", "Level 5 Tower A Lift Area" }; // contains all current mural locations
+    private string[] mMurals = { "Together", "Space", "Chicken", "Portal" }; // contains all current mural names
     public Text mInfoPromptText;
 
     //check if top menu is open
     private bool stickerState;
     private bool effectState;
     private bool modelState;
+
+    //checks if it is the first time a mural is open
+    private bool isFirstTogether = true;
+
+    // total reward coins collected
+    public static float mRewardCoins = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +53,7 @@ public class UISelect : MonoBehaviour
         mCameraButton.SetActive(false);
         mInformationButton.SetActive(false);
         mInformationPrompt.SetActive(false);
+        mReward.SetActive(false);
         mCameraPrompt.SetActive(true);
 
         stickerState = false;
