@@ -21,10 +21,11 @@ public class UISelect : MonoBehaviour
     public AudioClip mBtnClick;
 
     // UI Text for information prompt
-    private string[] mInformationPrompts = { "This is a mural that reads: 'more together, the happier we'll be'.",
-        "This is a mural that shows a splash of colour in a playful and expressive way, with text that reads 'Innovators bloom here'.", 
-        "This is a mural of chickens, serving as a tribute to the chickens that used to roam this property.",
+    private string[] mInformationPrompts = { "This is a mural about community living that reads: 'the more we get together, the happier we'll be'.",
+        "This is a mural that about expressing creativity in a colourful way, with a sign that reads 'Innovators bloom here'.", 
+        "This is a mural of interlocking chicken patterns, serving as a tribute to the chickens that used to roam this property.",
         "This is a mural that plays on the themes used across the property, such as portals and chickens." };
+    private string[] mCurrentLocation = { "Rooftop level Unwind & Hang Out", "Level 5 Tower B Lift Area", "Level 1 Wash & Hang", "Level 5 Tower A Lift Area" };
     private string[] mMurals = { "Together", "Space", "Chicken", "Portal" };
     public Text mInfoPromptText;
 
@@ -88,7 +89,7 @@ public class UISelect : MonoBehaviour
         {
             if (mMurals[i] == PopupSelect.mTarget.name)
             {
-                mInfoPromptText.text = mInformationPrompts[i];
+                mInfoPromptText.text = "Current Location: " +  mCurrentLocation[i] + "\n\n" + mInformationPrompts[i];
                 return;
             }
         }

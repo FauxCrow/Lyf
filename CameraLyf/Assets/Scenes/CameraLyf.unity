@@ -347,36 +347,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52805492}
   m_CullTransparentMesh: 1
---- !u!21 &55429351
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Portal_MuralMaterial
-
-    24040'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 025c4f86dcc74380ba6a604a0aeb86e9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &124241173
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +422,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!114 &124241176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,6 +934,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!1 &221687490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1010,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!114 &221687493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1366,36 +1339,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &375778059
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Together_MuralMaterial
-
-    23898'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: efce95fa34a140998d6abaf749cbe579, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &387478578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1455,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!114 &393312189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1876,6 +1820,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!1 &477834141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,7 +2210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1303413298}
+  - {fileID: 1949293762}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2471,7 +2416,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 51b2e5652dd1c2549b7a5c2fe586bccb, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -2483,7 +2428,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: If you see this, you are a buffoon.
+  m_Text: If you see this, an error has occured.
 --- !u!222 &657169801
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2589,6 +2534,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!114 &699182961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2751,6 +2697,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!21 &748769810
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Portal_MuralMaterial
+
+    38606'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 025c4f86dcc74380ba6a604a0aeb86e9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &764469744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,6 +2908,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!114 &798859415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3277,6 +3254,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!114 &839800825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3581,7 +3559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 375778059}
+  - {fileID: 1313473585}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3803,6 +3781,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!114 &936481044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4372,7 +4351,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 51b2e5652dd1c2549b7a5c2fe586bccb, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -4548,36 +4527,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!21 &1303413298
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Chicken_MuralMaterial
-
-    23810'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3294ce9783ab401881c716541ecf1f49, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1304752225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4659,6 +4608,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304752225}
   m_CullTransparentMesh: 1
+--- !u!21 &1313473585
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Together_MuralMaterial
+
+    38460'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: efce95fa34a140998d6abaf749cbe579, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1323613058
 GameObject:
   m_ObjectHideFlags: 0
@@ -4972,6 +4951,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!114 &1339961833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5230,6 +5210,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!114 &1450850775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5336,36 +5317,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450850772}
   m_CullTransparentMesh: 1
---- !u!21 &1462841867
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Space_MuralMaterial
-
-    24094'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c4db79f68bd44613a3a4f2f0a0e401b4, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1526229699
 GameObject:
   m_ObjectHideFlags: 0
@@ -5431,7 +5382,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 55429351}
+  - {fileID: 748769810}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5854,6 +5805,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1700792508
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Space_MuralMaterial
+
+    38660'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: c4db79f68bd44613a3a4f2f0a0e401b4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1706064157
 GameObject:
   m_ObjectHideFlags: 0
@@ -6169,6 +6150,7 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
 --- !u!1 &1743793600
 GameObject:
   m_ObjectHideFlags: 0
@@ -6234,7 +6216,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1462841867}
+  - {fileID: 1700792508}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6381,6 +6363,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd24db13eec28d84b8770a6fcf1e694e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &1949293762
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Chicken_MuralMaterial
+
+    38370'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 3294ce9783ab401881c716541ecf1f49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &2022392668
 GameObject:
   m_ObjectHideFlags: 0
@@ -6562,3 +6574,4 @@ MonoBehaviour:
   mStickerPrefab: {fileID: 68041563048864280, guid: 266016e74ee5d294a8bf22c9256f9a91,
     type: 3}
   mBackButton: {fileID: 699182956}
+  mCamera: {fileID: 0}
