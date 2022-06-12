@@ -22,6 +22,9 @@ public class PopupSelect : MonoBehaviour
     public GameObject mStickerPrefab;
     public GameObject mBackButton;
 
+    // Reference to AR Camera
+    public Camera mCamera;
+
     // Total number of popups in the scene
     public static int mTotalPopupNo = 0;
 
@@ -176,5 +179,17 @@ public class PopupSelect : MonoBehaviour
         previousObject.GetComponent<LeanPinchScale>().enabled = true;
         previousObject.GetComponent<LeanDragTranslate>().enabled = true;
         previousObject.GetComponent<LeanTwistRotate>().enabled = true;
+    }
+    
+    // Resets all sticker rotations to face AR camera
+    public void FaceCamera(int totalPopupNo)
+    {
+        for (int i = totalPopupNo; i > -1; i--)
+        {
+            mLastPopupName = "Popup" + (i);
+            mLastPopup = GameObject.Find(mLastPopupName);
+
+            mLastPopup.transform.LookAt(mLastPopup.transform.position + mCamera.transform.rotation * Vector3.forward, mCamera.transform.rotation * Vector3.up);
+        }
     }
 }
