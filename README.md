@@ -7,6 +7,7 @@ To do list:
 - [x] back button
 - [x] information pop-up
 - [x] code optimisation
-- [ ] reward of finding new mural pop-up
+- [x] reward of finding new mural pop-up
 - [x] new effects/models included
 - [x] sound effects
+- [x] quality-of-life changes (icons/font/audio)
