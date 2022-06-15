@@ -22,12 +22,6 @@ public class UISelect : MonoBehaviour
     public AudioClip mBtnClick;
 
     // UI Text for information prompt
-    private string[] mInformationPrompts = { "This is a mural about community living that reads: 'the more we get together, the happier we'll be'.",  // contains all current mural information
-        "This is a mural that about expressing creativity in a colourful way, with a sign that reads 'Innovators bloom here'.", 
-        "This is a mural of interlocking chicken patterns, serving as a tribute to the chickens that used to roam this property.",
-        "This is a mural that plays on the themes used across the property, such as portals and chickens." };
-    private string[] mCurrentLocation = { "Rooftop level Unwind & Hang Out", "Level 5 Tower B Lift Area", "Level 1 Wash & Hang", "Level 5 Tower A Lift Area" }; // contains all current mural locations
-    private string[] mMurals = { "Together", "Space", "Chicken", "Portal" }; // contains all current mural names
     public Text mInfoPromptText;
 
     //check if top menu is open
@@ -37,9 +31,6 @@ public class UISelect : MonoBehaviour
 
     //checks if it is the first time a mural is open
     private bool isFirstTogether = true;
-
-    // total reward coins collected
-    public static float mRewardCoins = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +59,8 @@ public class UISelect : MonoBehaviour
         mInformationButton.SetActive(true);
         mCameraPrompt.SetActive(false);
 
-        if (PopupSelect.mTarget.transform.childCount > 0)
+        // sets back button activ if there are children under target
+        if (PopupSelect.mTarget.transform.childCount > 0) 
         {
             mBackButton.SetActive(true);
         }
@@ -93,11 +85,12 @@ public class UISelect : MonoBehaviour
 
         mInformationPrompt.SetActive(true);
 
-        for (int i = 0; i < mMurals.Length; i++)
+        // Sets text in information prompt based on mural name
+        foreach (InfoList.MuralInfo mMuralInfo in InfoList.mMuralInfo)
         {
-            if (mMurals[i] == PopupSelect.mTarget.name)
+            if (mMuralInfo.mMuralName == PopupSelect.mTarget.name)
             {
-                mInfoPromptText.text = "Current Location: " +  mCurrentLocation[i] + "\n\n" + mInformationPrompts[i];
+                mInfoPromptText.text = "Current Location: " + mMuralInfo.mCurrentLocation + "\n\n" + mMuralInfo.mInfoPrompt;
                 return;
             }
         }
@@ -112,13 +105,11 @@ public class UISelect : MonoBehaviour
     {
         PlaySound();
 
-        if (effectState == true || modelState == true)
-        {
-            mEffectsMenu.SetActive(false);
-            effectState = false;
-            mModelsMenu.SetActive(false);
-            modelState = false;
-        }
+        //sets model/effect menu false in case they are open
+        mEffectsMenu.SetActive(false);
+        effectState = false;
+        mModelsMenu.SetActive(false);
+        modelState = false;
 
         if (stickerState == false)
         {
@@ -136,13 +127,11 @@ public class UISelect : MonoBehaviour
     {
         PlaySound();
 
-        if (stickerState == true || modelState == true)
-        {
-            mStickerMenu.SetActive(false);
-            stickerState = false;
-            mModelsMenu.SetActive(false);
-            modelState = false;
-        }
+        //sets sticker/model menu false in case they are open
+        mStickerMenu.SetActive(false);
+        stickerState = false;
+        mModelsMenu.SetActive(false);
+        modelState = false;
 
         if (effectState == false)
         {
@@ -161,13 +150,11 @@ public class UISelect : MonoBehaviour
     {
         PlaySound();
 
-        if (stickerState == true || effectState == true)
-        {
-            mStickerMenu.SetActive(false);
-            stickerState = false;
-            mEffectsMenu.SetActive(false);
-            effectState = false;
-        }
+        //sets sticker/effect menu false in case they are open
+        mStickerMenu.SetActive(false);
+        stickerState = false;
+        mEffectsMenu.SetActive(false);
+        effectState = false;
 
         if (modelState == false)
         {
@@ -176,6 +163,7 @@ public class UISelect : MonoBehaviour
             modelState = true;
             return;
         }
+
         mModelsMenu.SetActive(false);
         mTopMenu.SetActive(false);
         modelState = false;

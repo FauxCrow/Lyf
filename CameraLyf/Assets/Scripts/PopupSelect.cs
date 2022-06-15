@@ -9,21 +9,12 @@ public class PopupSelect : MonoBehaviour
     // Current image target (set in SetTargetName script)
     public static GameObject mTarget;
 
-    // Pre-existing array contraining effects prefabs
-    public GameObject[] mEffects;
-
-    // Pre-existing array contraining models prefabs
-    public GameObject[] mModels;
-
-    // Pre-existing arrays containing all sprites, Effects and animators, used to set spawned sticker's sprite and animator
-    public Sprite[] mStickers;
-    public RuntimeAnimatorController[] mAnimators;
-
     public GameObject mStickerPrefab;
     public GameObject mBackButton;
 
-    // Reference to AR Camera
-    public Camera mCamera;
+    // variables to store information from infoList for reference
+    private GameObject mAppManager;
+    private InfoList mInfoList;
 
     // Total number of popups in the scene
     public static int mTotalPopupNo = 0;
@@ -45,6 +36,8 @@ public class PopupSelect : MonoBehaviour
     void Start()
     {
         SetBackActive();
+        mAppManager = GameObject.Find("AppManager");
+        mInfoList = mAppManager.GetComponent<InfoList>();
     }
 
     public void SpawnPopup()
@@ -57,12 +50,13 @@ public class PopupSelect : MonoBehaviour
             DisableLean(mLastPopup);
         }
 
+        // switch statement identities popup-type and scans for corresponding popup number to setup popup
         switch (gameObject.tag)
         {
             case ("Sticker"):
-                for (int i = 0; i < mStickers.Length; i++)
+                for (int i = 0; i < mInfoList.mStickers.Length; i++)
                 {
-                    if (mStickers[i].name == this.name)
+                    if (mInfoList.mStickers[i].name == this.name)
                     {
                         mCurrentPopupNo = i;
                     }
@@ -72,27 +66,27 @@ public class PopupSelect : MonoBehaviour
                 break;
 
             case ("Effect"):
-                for (int i = 0; i < mEffects.Length; i++)
+                for (int i = 0; i < mInfoList.mEffects.Length; i++)
                 {
-                    if (mEffects[i].name == this.name)
+                    if (mInfoList.mEffects[i].name == this.name)
                     {
                         mCurrentPopupNo = i;
                     }
                 }
 
-                SetupTarget(mEffects[mCurrentPopupNo]);
+                SetupTarget(mInfoList.mEffects[mCurrentPopupNo]);
                 break;
 
             case ("Model"):
-                for (int i = 0; i < mModels.Length; i++)
+                for (int i = 0; i < mInfoList.mModels.Length; i++)
                 {
-                    if (mModels[i].name == this.name)
+                    if (mInfoList.mModels[i].name == this.name)
                     {
                         mCurrentPopupNo = i;
                     }
                 }
 
-                SetupTarget(mModels[mCurrentPopupNo]);
+                SetupTarget(mInfoList.mModels[mCurrentPopupNo]);
                 break;
         }
 
@@ -105,7 +99,7 @@ public class PopupSelect : MonoBehaviour
     private void SetupTarget(GameObject type)
     {
         // Spawn new type as child of current image target
-        // Change position and rotation to 0
+        // Change position to worldspace 0,0,0
         // Rename to current sticker number (used to delete target if user chooses to undo)
         GameObject target = Instantiate(type);
         target.transform.parent = mTarget.transform;
@@ -122,13 +116,15 @@ public class PopupSelect : MonoBehaviour
     // Setup sticker sprite and animations (if applicable) to newly spawned popup (target)
     private void SetupSticker(GameObject target)
     {
-        mStickerSprite = target.GetComponent<SpriteRenderer>();
-        mStickerSprite.sprite = mStickers[mCurrentPopupNo];
+        int staticStickers = 1; // used to show how many static stickers at the beginning of the array to skip part when calling animations for animated stickers
 
-        if (mCurrentPopupNo > 0)
+        mStickerSprite = target.GetComponent<SpriteRenderer>();
+        mStickerSprite.sprite = mInfoList.mStickers[mCurrentPopupNo];
+
+        if (mCurrentPopupNo > staticStickers - 1)
         {
             mStickerAnim = target.GetComponent<Animator>();
-            mStickerAnim.runtimeAnimatorController = mAnimators[mCurrentPopupNo - 1];
+            mStickerAnim.runtimeAnimatorController = mInfoList.mAnimators[mCurrentPopupNo + staticStickers];
         }
     }
 
@@ -141,7 +137,7 @@ public class PopupSelect : MonoBehaviour
 
         mTotalPopupNo--;
 
-        // Sets new last popup and enables lean movement
+        // Sets new last popup and enables lean movement for it
         if (mTotalPopupNo > 0)
         {
             mLastPopupName = "Popup" + (mTotalPopupNo - 1);
@@ -179,17 +175,5 @@ public class PopupSelect : MonoBehaviour
         previousObject.GetComponent<LeanPinchScale>().enabled = true;
         previousObject.GetComponent<LeanDragTranslate>().enabled = true;
         previousObject.GetComponent<LeanTwistRotate>().enabled = true;
-    }
-    
-    // Resets all sticker rotations to face AR camera
-    public void FaceCamera(int totalPopupNo)
-    {
-        for (int i = totalPopupNo; i > -1; i--)
-        {
-            mLastPopupName = "Popup" + (i);
-            mLastPopup = GameObject.Find(mLastPopupName);
-
-            mLastPopup.transform.LookAt(mLastPopup.transform.position + mCamera.transform.rotation * Vector3.forward, mCamera.transform.rotation * Vector3.up);
-        }
     }
 }

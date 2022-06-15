@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// This script will be placed on all Image Targets
 public class SetTargetName : MonoBehaviour
 {
     // UI GameObject for rewards
@@ -15,6 +16,7 @@ public class SetTargetName : MonoBehaviour
 
     private bool isNew = true;
 
+    // Sets target name in PopupSelect and checks if this is the user's first time scanning target mural
     public void SetTarget()
     {
         PopupSelect.mTarget = this.gameObject;
@@ -22,7 +24,7 @@ public class SetTargetName : MonoBehaviour
         if (isNew == true)
         {
             StartCoroutine(Reward());
-            UISelect.mRewardCoins += 5;
+            InfoList.mRewardCoins += 5;
             isNew = false;
         }
 
@@ -40,9 +42,9 @@ public class SetTargetName : MonoBehaviour
         // set text
         mRewardText.text = "Congratulations! You have found the " + this.name + " mural!";
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
 
-        // Disable after 4 seconds
+        // Disable after 2 seconds
         mReward.SetActive(false);
         mAudioSource.Stop();
     }
