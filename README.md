@@ -1,4 +1,4 @@
-## Overview
+# Overview
 
 This application is an AR Camera Application which scans specific murals on the Lyf property. It has the following features:
 - Screenshot (will be saved to phone gallery)
